@@ -1,5 +1,5 @@
 /* Query 1 */
-SELECT c.customer_id, cat.name, COUNT(*)
+SELECT c.customer_id, CONCAT(c.first_name, ' ', c.last_name) AS name, cat.name, COUNT(*)
 FROM customer c
 JOIN rental r
 ON r.customer_id = c.customer_id AND c.customer_id = (SELECT customer_id
@@ -18,8 +18,8 @@ JOIN film_category fc
 ON fc.film_id = f.film_id
 JOIN category cat 
 ON cat.category_id = fc.category_id
-GROUP BY 1, 2
-ORDER BY 3 DESC;
+GROUP BY 1, 2, 3
+ORDER BY 4 DESC;
 
 /* Query 2 */
 WITH t1 AS (
@@ -60,6 +60,7 @@ GROUP BY 2
 ORDER BY 1 DESC;
 
 /* Query 4 */
+/* @todo pull in another metric to compare/visualize */
 WITH t1 AS (
    SELECT c.customer_id, CONCAT(c.first_name, ' ', c.last_name) AS name, SUM(p.amount) tot_spent
    FROM customer c

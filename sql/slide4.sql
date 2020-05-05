@@ -1,7 +1,4 @@
-/**
- * What is the lifetime average amount spent 
- * for the top 10 total spending customers?
- */
+/* Query 4 */
 WITH t1 AS (
    SELECT c.customer_id, CONCAT(c.first_name, ' ', c.last_name) AS name, SUM(p.amount) tot_spent
    FROM customer c

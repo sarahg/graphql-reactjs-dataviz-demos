@@ -1,7 +1,4 @@
-/*
- * For the customer that rented the most films overall,
- * how many films did they have for each film_category?
- */
+/* Query 1 */
 SELECT c.customer_id, cat.name, COUNT(*)
 FROM customer c
 JOIN rental r
@@ -22,4 +19,4 @@ ON fc.film_id = f.film_id
 JOIN category cat 
 ON cat.category_id = fc.category_id
 GROUP BY 1, 2
-ORDER BY 3 DESC
+ORDER BY 3 DESC;

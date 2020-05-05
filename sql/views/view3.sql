@@ -1,7 +1,3 @@
-/**
- * Which category of film costs most to replace?
- */
-
 CREATE VIEW s3_fc_replacement_cost AS (
     WITH t1 AS (
         SELECT 

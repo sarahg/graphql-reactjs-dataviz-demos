@@ -1,7 +1,4 @@
-/**
- * Find the name of the staff member in each store 
- * with the largest amount of sales.
- */
+/* Query 2 */
 WITH t1 AS (
     SELECT CONCAT(s.first_name, ' ', s.last_name) AS name, s.store_id, SUM(p.amount) total_amt
     FROM staff s

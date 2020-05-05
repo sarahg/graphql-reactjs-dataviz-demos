@@ -1,6 +1,4 @@
-/**
- * Which category of film costs most to replace?
- */
+/* Query 3 */
 WITH t1 AS (
     SELECT 
         f.film_id,

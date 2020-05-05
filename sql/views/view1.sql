@@ -1,8 +1,3 @@
-/*
- * For the customer that rented the most films overall,
- * how many films did they have for each film_category?
- */
-
 CREATE VIEW s1_top_customers_films_by_category AS (
     SELECT c.customer_id, cat.name, COUNT(*)
     FROM customer c

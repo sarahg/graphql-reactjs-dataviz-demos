@@ -1,5 +1,5 @@
 /* Query 1 */
-SELECT c.customer_id, CONCAT(c.first_name, ' ', c.last_name) AS name, cat.name, COUNT(*)
+SELECT c.customer_id, CONCAT(c.first_name, ' ', c.last_name) AS cust_name, cat.name, COUNT(*)
 FROM customer c
 JOIN rental r
 ON r.customer_id = c.customer_id AND c.customer_id = (SELECT customer_id
@@ -19,4 +19,4 @@ ON fc.film_id = f.film_id
 JOIN category cat 
 ON cat.category_id = fc.category_id
 GROUP BY 1, 2, 3
-ORDER BY 4 DESC
+ORDER BY 4 DESC;

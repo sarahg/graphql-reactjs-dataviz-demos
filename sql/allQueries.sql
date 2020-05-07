@@ -1,5 +1,5 @@
 /* Query 1 */
-SELECT c.customer_id, CONCAT(c.first_name, ' ', c.last_name) AS name, cat.name, COUNT(*)
+SELECT c.customer_id, CONCAT(c.first_name, ' ', c.last_name) AS cust_name, cat.name, COUNT(*)
 FROM customer c
 JOIN rental r
 ON r.customer_id = c.customer_id AND c.customer_id = (SELECT customer_id

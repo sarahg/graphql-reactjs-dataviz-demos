@@ -1,6 +1,7 @@
 import React from "react";
 import Chart1 from "./components/chart1";
 import Chart2 from "./components/chart2";
+import Chart3 from "./components/chart3";
 
 export default class App extends React.Component {
   render() {
@@ -18,6 +19,10 @@ export default class App extends React.Component {
         <hr />
         <h3>Chart 2</h3>
         <Chart2 />
+
+        <hr />
+        <h3>Chart 3</h3>
+        <Chart3 />
 
       </div>
     );

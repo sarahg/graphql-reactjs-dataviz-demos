@@ -9,14 +9,9 @@ import { InMemoryCache } from "apollo-cache-inmemory";
 
 // Create a WebSocket link:
 const link = new WebSocketLink({
-  uri: `ws://localhost:8080/v1alpha1/graphql`,
+  uri: `ws://localhost:8080/v1/graphql`,
   options: {
-    reconnect: true,
-    connectionParams: {
-      headers: {
-        "x-hasura-admin-secret": "mylongsecretkey",
-      },
-    },
+    reconnect: true
   },
 });
 const cache = new InMemoryCache();

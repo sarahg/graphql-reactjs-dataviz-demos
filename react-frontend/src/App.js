@@ -2,6 +2,9 @@ import React from "react";
 import Chart1 from "./components/chart1";
 import Chart2 from "./components/chart2";
 import Chart3 from "./components/chart3";
+import Chart4 from "./components/chart4";
+
+// @todo start the Y-axis at 0 on bar charts
 
 export default class App extends React.Component {
   render() {
@@ -23,6 +26,10 @@ export default class App extends React.Component {
         <hr />
         <h3>Chart 3</h3>
         <Chart3 />
+
+        <hr />
+        <h3>Chart 4</h3>
+        <Chart4 />
 
       </div>
     );

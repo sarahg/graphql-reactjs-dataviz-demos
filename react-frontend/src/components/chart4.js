@@ -25,15 +25,41 @@ class Chart4 extends Component {
             if (loading) {
               return "Loading";
             }
+
+            let options = {
+              legend: {
+                display: false,
+              },
+              scales: {
+                yAxes: [
+                  {
+                    ticks: {
+                      beginAtZero: true,
+                    },
+                    scaleLabel: {
+                      display: true,
+                      labelString: "Rentals",
+                    },
+                  },
+                ],
+                xAxes: [
+                  {
+                    scaleLabel: {
+                      display: true,
+                      labelString: "Film rating",
+                    },
+                  },
+                ],
+              },
+            };
+
             let chartJSData = {
               labels: [],
               datasets: [
                 {
-                  label: "Rentals longer than 7 days",
+                  label: "Number of rentals",
                   data: [],
-                  backgroundColor: "rgba(255,99,132,0.2)",
-                  borderColor: "rgba(255,99,132,1)",
-                  borderWidth: 1,
+                  backgroundColor: "#FF6384",
                 },
               ],
             };
@@ -41,7 +67,7 @@ class Chart4 extends Component {
               chartJSData.labels.push(item.rating);
               chartJSData.datasets[0].data.push(item.rental_count);
             });
-            return <Bar data={chartJSData} />;
+            return <Bar data={chartJSData} options={options} />;
           }}
         </Subscription>
       </div>

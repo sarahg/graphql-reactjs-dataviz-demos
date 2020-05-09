@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Doughnut } from "react-chartjs-2";
+import { Bar } from "react-chartjs-2";
 import { Subscription } from "react-apollo";
 import gql from "graphql-tag";
 
@@ -25,14 +25,43 @@ class Chart2 extends Component {
             if (loading) {
               return "Loading";
             }
+
+            let options = {
+              legend: {
+                display: false,
+              },
+              scales: {
+                yAxes: [
+                  {
+                    scaleLabel: {
+                      display: true,
+                      labelString: "Sales in dollars"
+                    },
+                    ticks: {
+                      callback: function (value, index, values) {
+                        return "$" + value.toLocaleString();
+                      },
+                    }
+                  }
+                ],
+                xAxes: [
+                  {
+                    scaleLabel: {
+                      display: true,
+                      labelString: "Employee name"
+                    }
+                  },
+                ],
+              },
+            };
+
             let chartJSData = {
               labels: [],
               datasets: [
                 {
-                  label: "Total sales by staff",
+                  label: "Total sales",
                   data: [],
-                  backgroundColor: ['#FF6384', '#36A2EB'],
-                  borderWidth: 1,
+                  backgroundColor: '#FF6384'
                 },
               ],
             };
@@ -40,7 +69,7 @@ class Chart2 extends Component {
               chartJSData.labels.push(item.name);
               chartJSData.datasets[0].data.push(item.total_amt);
             });
-            return <Doughnut data={chartJSData} />;
+            return <Bar data={chartJSData} options={options} />;
           }}
         </Subscription>
       </div>

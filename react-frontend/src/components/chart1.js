@@ -25,6 +25,34 @@ class Chart1 extends Component {
             if (loading) {
               return "Loading";
             }
+
+            let options = {
+              legend: {
+                display: false,
+              },
+              scales: {
+                yAxes: [
+                  {
+                    scaleLabel: {
+                      display: true,
+                      labelString: "Film category"
+                    }
+                  }
+                ],
+                xAxes: [
+                  {
+                    scaleLabel: {
+                      display: true,
+                      labelString: "Rentals"
+                    },
+                    ticks: {
+                      beginAtZero: true,
+                    },
+                  },
+                ],
+              },
+            };
+
             let chartJSData = {
               labels: [],
               datasets: [
@@ -39,7 +67,7 @@ class Chart1 extends Component {
               chartJSData.labels.push(item.name);
               chartJSData.datasets[0].data.push(item.count);
             });
-            return <HorizontalBar data={chartJSData} />;
+            return <HorizontalBar data={chartJSData} options={options} />;
           }}
         </Subscription>
       </div>

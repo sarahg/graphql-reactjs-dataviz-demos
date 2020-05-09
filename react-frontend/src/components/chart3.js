@@ -25,15 +25,44 @@ class Chart3 extends Component {
             if (loading) {
               return "Loading";
             }
+
+            let options = {
+              legend: {
+                display: false,
+              },
+              scales: {
+                xAxes: [
+                  {
+                    ticks: {
+                      callback: function (value, index, values) {
+                        return "$" + value;
+                      },
+                      beginAtZero: true,
+                    },
+                    scaleLabel: {
+                      display: true,
+                      labelString: "Cost in dollars"
+                    },
+                  },
+                ],
+                yAxes: [
+                  {
+                    scaleLabel: {
+                      display: true,
+                      labelString: "Film category"
+                    },
+                  }
+                ]
+              },
+            };
+
             let chartJSData = {
               labels: [],
               datasets: [
                 {
-                  label: "Highest film replacement cost",
+                  label: "Replacement cost",
                   data: [],
-                  backgroundColor: "rgba(255,99,132,0.2)",
-                  borderColor: "rgba(255,99,132,1)",
-                  borderWidth: 1,
+                  backgroundColor: "#f9d904",
                 },
               ],
             };
@@ -41,7 +70,7 @@ class Chart3 extends Component {
               chartJSData.labels.push(item.name);
               chartJSData.datasets[0].data.push(item.count);
             });
-            return <HorizontalBar data={chartJSData} />;
+            return <HorizontalBar data={chartJSData} options={options} />;
           }}
         </Subscription>
       </div>

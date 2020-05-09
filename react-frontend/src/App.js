@@ -16,19 +16,19 @@ export default class App extends React.Component {
         </header>
 
         <hr />
-        <h3>Chart 1</h3>
+        <h3>Top customer's rental categories</h3>
         <Chart1 />
 
         <hr />
-        <h3>Chart 2</h3>
+        <h3>Sales per top store employee</h3>
         <Chart2 />
 
         <hr />
-        <h3>Chart 3</h3>
+        <h3>Film replacement costs by category</h3>
         <Chart3 />
 
         <hr />
-        <h3>Chart 4</h3>
+        <h3>Rentals over a week by film rating</h3>
         <Chart4 />
 
       </div>

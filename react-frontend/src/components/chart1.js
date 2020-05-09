@@ -31,9 +31,7 @@ class Chart1 extends Component {
                 {
                   label: "Number of rentals",
                   data: [],
-                  backgroundColor: "rgba(255,99,132,0.2)",
-                  borderColor: "rgba(255,99,132,1)",
-                  borderWidth: 1,
+                  backgroundColor: "#f9d904",
                 },
               ],
             };
